@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.sort-style{
+    width: 20%;
+    position: absolute;
+    left: 25%;
+}
+.form-inline{
+    position: relative;
+    left: 50%;
+}
+#searchBox{
+    width:360px;
+}

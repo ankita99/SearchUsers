@@ -1,3 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="collapse navbar-collapse" >
+      <select class="form-control sort-style" id="exampleSelect1" placeholder="Sort">
+          <option>Sort by Name(A-Z)</option>
+          <option>Name(Z-A)</option>
+          <option>Rank </option>
+          <option>Rank </option>
+        </select>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" id="searchBox" placeholder="Search" type="text" [(ngModel)]="searchText" name="username">
+    </form>
+  </div>
+</nav>
+<app-users></app-users>

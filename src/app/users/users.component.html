@@ -1,0 +1,11 @@
+<div class="count">
+  <h5>
+    <strong>Total Results: {{users.length}}</strong>
+    </h5>
+</div>
+<span class="count">{{errorMsg}}</span>
+<div class="card-body users-style" *ngFor="let user of users">
+  <img class="user-img" [src]="user.avatar_url"><div class="user-name">{{user.login}}</div>
+  <span class="user-url">Profile URL: {{user.html_url}}</span>
+  <p class="card-text"></p>
+</div>
