@@ -1,11 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="collapse navbar-collapse" >
+      <select class="form-control sort-style" id="exampleSelect1" placeholder="Sort">
+          <option>Sort by Name(A-Z)</option>
+          <option>Name(Z-A)</option>
+          <option>Rank </option>
+          <option>Rank </option>
+        </select>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" id="searchBox" placeholder="Search" type="text" [(ngModel)]="searchText" name="username" (keypress)="getUsers(searchText)">
+    </form>
+  </div>
+</nav>
 <div class="count">
   <h5>
     <strong>Total Results: {{users.length}}</strong>
     </h5>
 </div>
-<span class="count">{{errorMsg}}</span>
 <div class="card-body users-style" *ngFor="let user of users">
   <img class="user-img" [src]="user.avatar_url"><div class="user-name">{{user.login}}</div>
   <span class="user-url">Profile URL: {{user.html_url}}</span>
   <p class="card-text"></p>
+  <app-repo-details [username]="user.login"></app-repo-details>
 </div>

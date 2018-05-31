@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response,Headers, RequestOptions,URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -8,15 +8,31 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class UserService {
 
-  private _url: string = "https://api.github.com/search/users?q=ankita";
+  private _apiurl: string = "https://api.github.com/search/users?q=";
+  private _reposurl: string = "https://api.github.com/users/";
 
   constructor(private _http: Http){}
-  getUsers(){
-      return this._http.get(this._url)
+  getUsers(searchText){
+    let params = new URLSearchParams();
+    params.set('client_id', 'aefd9ea9c21cdf6bdb6c');
+    params.set('client_secret', '7f28a3b8a4f97da7dbb81a8389d7adacb69007b7');
+    let reqOptions = new RequestOptions();
+    reqOptions.search =params;
+      return this._http.get(this._apiurl+searchText,reqOptions)
           .map((response: Response) => response.json())
           .catch(this.errorHandler);
   }
 
+  getUserDetails(username){
+    let params = new URLSearchParams();
+    params.set('client_id', 'aefd9ea9c21cdf6bdb6c');
+    params.set('client_secret', '7f28a3b8a4f97da7dbb81a8389d7adacb69007b7');
+    let reqOptions = new RequestOptions();
+    reqOptions.search =params;
+      return this._http.get(this._reposurl+username+"/repos",reqOptions)
+          .map((response: Response) => response.json())
+          .catch(this.errorHandler);
+  }
   errorHandler(error: Response){
       console.error(error);
       return Observable.throw(error || "Server Error");

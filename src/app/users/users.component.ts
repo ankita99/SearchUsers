@@ -10,14 +10,19 @@ import { UserService } from '../user.service';
 export class UsersComponent implements OnInit {
   users;
   errorMsg;
+  searchText;
+  
   constructor(private _userService : UserService) { 
     this.users=[];
   }
 
   ngOnInit() {
-    this._userService.getUsers()
-    .subscribe( resUserData => this.users = resUserData.items,
-                error => this.errorMsg = error);
   }
+
+  getUsers(searchText1){
+  this._userService.getUsers(searchText1)
+  .subscribe( resUserData => this.users = resUserData.items,
+              error => this.errorMsg = error);
+}
 
 }

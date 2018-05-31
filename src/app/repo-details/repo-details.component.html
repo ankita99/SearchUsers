@@ -1,0 +1,20 @@
+<div >
+    <button class="btn btn-outline-primary" id="details-btn" (click)="getDetails(username)">{{isSelected?'Collapse':'Details'}} </button>
+    <div *ngIf="isSelected">
+
+        <table class="table table-hover">
+            <tr class="table-active">
+                <th>Repository</th>
+                <th>Language</th>
+                <th>Fork</th>
+                <th>Open Issue</th>
+              </tr>
+            <tr *ngFor="let repo of userDetails">
+              <td>{{repo.name}}</td>
+              <td>{{repo.language}}</td>
+              <td>{{repo.forks_count}}</td>
+              <td>{{repo.open_issues_count}}</td>
+            </tr>
+          </table>
+    </div>
+</div>

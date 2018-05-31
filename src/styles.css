@@ -3,6 +3,7 @@
     width: 20%;
     position: absolute;
     left: 25%;
+    border-radius: 2px;
 }
 .form-inline{
     position: relative;
@@ -10,4 +11,8 @@
 }
 #searchBox{
     width:360px;
+    border-radius: 2px;
+}
+body{
+    background-color: #f2f2f2;
 }

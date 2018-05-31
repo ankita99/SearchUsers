@@ -1,6 +1,9 @@
 .users-style{
-    width: 75%;
-    padding-left: 25%;
+    width: 52%;
+    margin-left: 25%;
+    background-color: white;
+    padding-bottom: 50px;
+    margin-top: 20px;
 }
 .count{
     position: relative;

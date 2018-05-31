@@ -1,0 +1,11 @@
+#details-btn{
+    position: relative;
+    float: right;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    width: 15%;
+}
+td,th{
+        width: 25%;
+        text-align: center;
+}
