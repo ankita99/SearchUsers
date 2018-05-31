@@ -6,13 +6,15 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { RepoDetailsComponent } from './repo-details/repo-details.component';
+import { SortByPipe } from './sort-by.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    RepoDetailsComponent
+    RepoDetailsComponent,
+    SortByPipe
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,8 @@ export class UsersComponent implements OnInit {
   users;
   errorMsg;
   searchText;
+  path: string[] = ['login'];
+  order: number = 1;
   
   constructor(private _userService : UserService) { 
     this.users=[];
@@ -25,4 +27,10 @@ export class UsersComponent implements OnInit {
               error => this.errorMsg = error);
 }
 
+
+  sortUsers(prop: string) {
+    this.path = prop.split('.')
+    this.order = this.order * (-1); 
+    return false;
+  }
 }
