@@ -13,7 +13,39 @@ export class UserService {
   private _clientId: string ="aefd9ea9c21cdf6bdb6c";
   private _client_secret: string ="7f28a3b8a4f97da7dbb81a8389d7adacb69007b7";
 
-  constructor(private _http: Http){}
+  /*parse = require('parse-link-header');
+  linkHeader;
+  parsedLink;*/
+ 
+
+  constructor(private _http: Http){
+    //this.linkHeader ="";
+    //this.parsedLink={};
+  }
+
+  /*parseLink(searchText){
+    this.linkHeader =
+    '<https://api.github.com/search/users?q='+searchText+'&page=2&per_page=10>; rel="next", ' +
+    '<https://api.github.com/search/users?q='+searchText+'&page=1&per_page=10>; rel="prev"; pet="cat", ' +
+    '<https://api.github.com/search/users?q='+searchText+'&page=3&per_page=10>; rel="last"'
+   
+    let parsed = this.parse(this.linkHeader);
+    return parsed;
+  }
+
+  getAllUsers(searchText){
+    
+    this.parsedLink = this.parseLink(searchText)
+    let params = new URLSearchParams();
+    params.set('client_id', this._clientId);
+    params.set('client_secret', this._client_secret);
+    let reqOptions = new RequestOptions();
+    reqOptions.search =params;
+      return this._http.get(this.parsedLink.prev.url,reqOptions)
+          .map((response: Response) => response.json())
+          .catch(this.errorHandler);
+  }*/
+
   getUsers(searchText){
     let params = new URLSearchParams();
     params.set('client_id', this._clientId);
@@ -35,6 +67,7 @@ export class UserService {
           .map((response: Response) => response.json())
           .catch(this.errorHandler);
   }
+  
   errorHandler(error: Response){
       console.error(error);
       return Observable.throw(error || "Server Error");

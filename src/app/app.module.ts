@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { RepoDetailsComponent } from './repo-details/repo-details.component';
 import { SortByPipe } from './sort-by.pipe';
+import { NgxPaginationModule } from 'ngx-pagination'; 
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SortByPipe } from './sort-by.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

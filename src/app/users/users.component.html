@@ -7,18 +7,20 @@
           <option (click)="sortUsers('score')">Sort by Rank &#x2193;</option>
         </select>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" id="searchBox" placeholder="Search" type="text" [(ngModel)]="searchText" name="username" (keypress)="getUsers(searchText)">
+      <input class="form-control mr-sm-2" id="searchBox" placeholder="Search" type="text" [(ngModel)]="searchText" name="username" (ngModelChange)="getUsers(searchText)" >
     </form>
   </div>
 </nav>
+<div *ngIf="searchText.length>0">
 <div class="count">
   <h5>
-    <strong>Total Results: {{users.length}}</strong>
+    <strong>Total Results: {{users.total_count}}</strong>
     </h5>
 </div>
-<div class="card-body users-style" *ngFor="let user of users  | sortBy :path:order ">
+<div class="card-body users-style" *ngFor="let user of users.items | sortBy :path:order | paginate: { itemsPerPage: 10, currentPage: p, totalItems: users.total_count } ">
   <img class="user-img" [src]="user.avatar_url"><div class="user-name">{{user.login}}</div>
   <span class="user-url">Profile URL: {{user.html_url}}</span>
-  <p class="card-text"></p>
-  <app-repo-details [username]="user.login"></app-repo-details>
+   <app-repo-details [username]="user.login"></app-repo-details>
+</div>
+<pagination-controls (pageChange)="p = $event" class="pagination-style"></pagination-controls>
 </div>
